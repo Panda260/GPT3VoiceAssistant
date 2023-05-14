@@ -10,10 +10,12 @@ load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+for index, name in enumerate(sr.Microphone.list_microphone_names()):
+    print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(
+        index, name))
+
 # initialize the text-to-speech engine
 engine = pyttsx3.init()
-
-print(openai.api_key)
 
 
 def transcribe_audio_to_text(filename):
